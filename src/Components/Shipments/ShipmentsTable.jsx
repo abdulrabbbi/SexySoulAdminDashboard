@@ -13,7 +13,7 @@ import { TbTree } from "react-icons/tb";
 import { Checkbox, UserCell, DateCell } from "../ui/shared/TablePrimitives";
 
 /* ---------- Store cell (table-specific) ---------- */
-const StoreCell = ({ name, Icon, iconBg }) => (
+const StoreCell = ({ name,  iconBg }) => (
   <div className="flex items-center gap-3">
     <span className={`w-8 h-8 rounded-full grid place-items-center ${iconBg} border border-black/10`}>
       <Icon className="w-4 h-4" />

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import OffersBoard from "../Components/ptm/OffersBoard";
 import OfferDrawer from "../Components/ptm/OfferDrawer";
 import OfferDetails from "../Components/ptm/OfferDetails";

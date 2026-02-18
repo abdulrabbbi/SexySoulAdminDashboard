@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import  { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import {
   MdClose,
@@ -69,7 +69,7 @@ const ContentDrawer = ({ open, initial, collections = [], onClose, onSave }) => 
 
   useEffect(() => {
     if (open) {
-      setRecord((prev) => ({ ...fieldsDefault, ...(initial || {}) }));
+      setRecord(() => ({ ...fieldsDefault, ...(initial || {}) }));
     }
   }, [open, initial]);
 

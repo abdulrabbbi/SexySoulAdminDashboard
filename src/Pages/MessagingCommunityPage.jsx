@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import  {  useState } from "react";
 import BroadcastBoard from "../Components/messaging/BroadcastBoard";
 import BroadcastDrawer from "../Components/messaging/BroadcastDrawer";
 import BroadcastDetails from "../Components/messaging/BroadcastDetails";
@@ -143,7 +143,7 @@ const SEED_REPORTS = [
 
 const MessagingCommunityPage = () => {
   const [campaigns, setCampaigns] = useState(SEED_CAMPAIGNS);
-  const [templates] = useState(SEED_TEMPLATES);
+  
   const [inbox, setInbox] = useState(SEED_REPLIES);
   const [rooms] = useState(SEED_ROOMS);
   const [reports, setReports] = useState(SEED_REPORTS);
@@ -233,7 +233,7 @@ const MessagingCommunityPage = () => {
     );
 
   /** ------- Moderation actions ------- */
-  const takeModerationAction = (reportId, action, reason) => {
+  const takeModerationAction = (reportId, action) => {
     // action: warn | mute | ban | shadowban | delete | dismiss
     setReports((prev) =>
       prev.map((r) =>

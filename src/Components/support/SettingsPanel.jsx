@@ -39,7 +39,7 @@ const SettingsPanel = ({
       <div className="rounded-2xl p-3" style={{ backgroundColor: COLORS.card, border: `1px solid ${COLORS.ring}` }}>
         <div className="text-xs mb-2" style={{ color: COLORS.text2 }}>Settings</div>
         <div className="space-y-1">
-          {SECTIONS.map(({ key, label, Icon }) => {
+          {SECTIONS.map(({ key, label }) => {
             const active = section === key;
             return (
               <button

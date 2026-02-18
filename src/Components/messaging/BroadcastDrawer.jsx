@@ -4,7 +4,7 @@ import { MdClose, MdMail, MdSmartphone, MdWeb } from "react-icons/md";
 
 const COLORS = { bg2:"#12131A", card:"#161821", text:"#E6E8F0", text2:"#A3A7B7", ring:"rgba(110,86,207,0.25)", gold:"#D4AF37", purple:"#6E56CF" };
 
-const ChannelBtn = ({ label, value, active, onClick, Icon }) => (
+const ChannelBtn = ({ label, value, active, onClick}) => (
   <button
     onClick={() => onClick(value)}
     className="px-3 py-1.5 rounded-lg text-sm font-medium inline-flex items-center gap-2"

@@ -42,7 +42,7 @@ const Pill = ({ label, tone = "neutral" }) => {
   return <span className="px-2 py-0.5 rounded-md text-[11px] font-semibold" style={{ backgroundColor:c.bg, color:c.fg }}>{label}</span>;
 };
 
-const BrokerDetails = ({ broker, onClose, onEdit, onUpdate, onMarkPaid, onAddPayout, onExportOne }) => {
+const BrokerDetails = ({ broker, onClose, onEdit, onMarkPaid, onAddPayout, onExportOne }) => {
   const [mounted, setMounted] = useState(false);
   const [tab, setTab] = useState("overview");
 

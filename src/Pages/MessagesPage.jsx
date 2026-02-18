@@ -158,6 +158,7 @@ const MessagesPage = () => {
   useEffect(() => {
     if (!active) return;
     setThreads((prev) => prev.map((t) => (t.id === active.id ? { ...t, unread: 0 } : t)));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active?.id]);
 
   // Auto-scroll to bottom of messages
@@ -228,7 +229,6 @@ const MessagesPage = () => {
     }, 15000);
 
     return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [threads, active?.id]);
 
   if (!active) return <div className="p-4">Loading...</div>;

@@ -411,7 +411,7 @@ const LiveStudio = () => {
               { key: "qa", label: "Q&A", Icon: MdHelpOutline },
               { key: "participants", label: "Participants", Icon: MdPeople },
               { key: "settings", label: "Settings", Icon: MdSettings },
-            ].map(({ key, label, Icon }) => {
+            ].map(({ key, label }) => {
               const active = tab === key;
               return (
                 <button

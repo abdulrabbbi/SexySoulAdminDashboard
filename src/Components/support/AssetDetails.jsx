@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { IoClose } from "react-icons/io5";

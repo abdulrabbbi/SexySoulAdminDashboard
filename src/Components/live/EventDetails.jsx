@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import  { useEffect , useState } from "react";
 import { createPortal } from "react-dom";
 import { IoClose } from "react-icons/io5";
 import { MdPlayCircle, MdStopCircle, MdVideoLibrary, MdSend, MdQrCode2, MdDownload, MdEdit } from "react-icons/md";
@@ -71,6 +71,7 @@ const EventDetails = ({ item, onClose, onEdit, onSetStatus, onSaveReplay, onChec
   const attendees = item.metrics?.attendees || (item.attendees?.filter((a)=>a.checkedIn).length ?? 0);
   const checkinRate = registrants ? Math.round((attendees/registrants)*100) : 0;
 
+  // eslint-disable-next-line no-unused-vars
   const checkinCode = (att) => `${item.id}:${att.id}`;
 
   return createPortal(

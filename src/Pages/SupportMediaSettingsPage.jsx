@@ -7,6 +7,7 @@ import MediaUploadDrawer from "../Components/support/MediaUploadDrawer";
 import AssetDetails from "../Components/support/AssetDetails";
 import SettingsPanel from "../Components/support/SettingsPanel";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const COLORS = {
   onyx: "#0B0B0F",
   bg2: "#12131A",
@@ -138,13 +139,14 @@ const SupportMediaSettingsPage = () => {
         onExportAudit={exportAudit}
       />
     );
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tab, tickets, assets, brand, founders, plans, integrations, roles, audit]);
 
   return (
     <div className="space-y-5">
       {/* Top tabs */}
       <div className="flex items-center gap-2">
-        {TABS.map(({ key, label, Icon }) => {
+        {TABS.map(({ key, label}) => {
           const active = tab === key;
           return (
             <button

@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { IoClose } from "react-icons/io5";
 import { FiCopy, FiEdit2, FiRefreshCw } from "react-icons/fi";
@@ -70,9 +70,6 @@ const UserDrawer = ({ user, onClose }) => {
     };
   }, [isOpen]);
 
-  const invoices = useMemo(() => user?.invoices || [], [user]);
-  const devices = useMemo(() => user?.devices || [], [user]);
-  const audit = useMemo(() => user?.audit || [], [user]);
 
   if (!isOpen || !mounted) return null;
 

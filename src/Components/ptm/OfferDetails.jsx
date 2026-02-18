@@ -60,7 +60,7 @@ const StatusPill = ({ status }) => {
   return <span className="px-2 py-0.5 rounded-md text-[11px] font-semibold" style={{ backgroundColor:c.bg, color:c.fg }}>{status}</span>;
 };
 
-const OfferDetails = ({ item, onClose, onEdit, onSetStatus, onExportOne, sync }) => {
+const OfferDetails = ({ item, onClose, onEdit, onExportOne, sync }) => {
   // 🔒 Hooks are ALWAYS called
   const [mounted, setMounted] = useState(false);
   const [tab, setTab] = useState("overview");

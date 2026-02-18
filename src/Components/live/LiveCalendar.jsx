@@ -167,7 +167,7 @@ const LiveCalendar = ({ events = [], onCreate, onSelect, onEdit, onExport }) => 
               { key: "month", Icon: MdCalendarMonth, label: "Month" },
               { key: "week", Icon: MdViewWeek, label: "Week" },
               { key: "list", Icon: MdList, label: "List" },
-            ].map(({ key, Icon, label }) => {
+            ].map(({ key, label }) => {
               const active = view === key;
               return (
                 <button

@@ -122,7 +122,7 @@ const exportCSV = (rows) => {
   URL.revokeObjectURL(url);
 };
 
-const UsersTable = ({ data = [], onOpenUser, onUpdateUser }) => {
+const UsersTable = ({ data = [], onOpenUser }) => {
   const [search, setSearch] = useState("");
   const [checked, setChecked] = useState(() => new Set());
   const [segment, setSegment] = useState("All"); // All, Free, Paid, VIP, Trial, Cancelled
