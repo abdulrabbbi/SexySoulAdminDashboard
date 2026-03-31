@@ -1,42 +1,43 @@
-import React from "react";
-import { createBrowserRouter, Outlet } from "react-router-dom";
-import DashboardContent from "../Pages/MainDashboard";
+import React, { Suspense, lazy } from "react";
+import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/SiteLayout";
 import AuthLayout from "../layouts/AuthLayout";
-import UsersPage from "../Pages/UsersPage";
-import ContentPage from "../Pages/ContentPage";
-import LiveEventsPage from "../Pages/LiveEventsPage";
-import DealsPartnersPage from "../Pages/DealsPartnersPage";
-import BrokersReferralsPage from "../Pages/BrokersReferralsPage";
-import MessagingCommunityPage from "../Pages/MessagingCommunityPage";
-import SupportMediaSettingsPage from "../Pages/SupportMediaSettingsPage";
-import LiveStudio from "../Pages/LiveStudio";
-import LoginPage from "../Pages/Auth/Login";
 
-// --- Router ---
+const DashboardContent = lazy(() => import("../Pages/MainDashboard"));
+const UsersPage = lazy(() => import("../Pages/UsersPage"));
+const ContentPage = lazy(() => import("../Pages/ContentPage"));
+const LiveEventsPage = lazy(() => import("../Pages/LiveEventsPage"));
+const LiveStudio = lazy(() => import("../Pages/LiveStudio"));
+const DealsPartnersPage = lazy(() => import("../Pages/DealsPartnersPage"));
+const BrokersReferralsPage = lazy(() => import("../Pages/BrokersReferralsPage"));
+const MessagingCommunityPage = lazy(() => import("../Pages/MessagingCommunityPage"));
+const SupportMediaSettingsPage = lazy(() => import("../Pages/SupportMediaSettingsPage"));
+const LoginPage = lazy(() => import("../Pages/Auth/Login"));
+
+function LazyPage({ children }) {
+  return <Suspense fallback={<div />}>{children}</Suspense>;
+}
+
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <DashboardLayout />,
     children: [
-      { index: true, element: <DashboardContent /> },
-      { path: "users-memberships", element: <UsersPage /> },
-      { path: "content", element: <ContentPage /> },
-      { path: "live-events", element: <LiveEventsPage /> },
-      {
-        path: "/live-studio",
-        element: <LiveStudio />,
-      },
-      { path: "deals", element: <DealsPartnersPage /> },
-      { path: "brokers", element: <BrokersReferralsPage /> },
-      { path: "messaging", element: <MessagingCommunityPage /> },
-      { path: "support-settings", element: <SupportMediaSettingsPage /> },
+      { index: true, element: <LazyPage><DashboardContent /></LazyPage> },
+      { path: "users-memberships", element: <LazyPage><UsersPage /></LazyPage> },
+      { path: "content", element: <LazyPage><ContentPage /></LazyPage> },
+      { path: "live-events", element: <LazyPage><LiveEventsPage /></LazyPage> },
+      { path: "/live-studio", element: <LazyPage><LiveStudio /></LazyPage> },
+      { path: "deals", element: <LazyPage><DealsPartnersPage /></LazyPage> },
+      { path: "brokers", element: <LazyPage><BrokersReferralsPage /></LazyPage> },
+      { path: "messaging", element: <LazyPage><MessagingCommunityPage /></LazyPage> },
+      { path: "support-settings", element: <LazyPage><SupportMediaSettingsPage /></LazyPage> },
     ],
   },
   {
     path: "/auth",
     element: <AuthLayout />,
-    children: [{ path: "login", element: <LoginPage /> }],
+    children: [{ path: "login", element: <LazyPage><LoginPage /></LazyPage> }],
   },
 ]);
 
