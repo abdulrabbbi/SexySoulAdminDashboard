@@ -6,6 +6,7 @@ import MediaLibrary from "../Components/support/MediaLibrary";
 import MediaUploadDrawer from "../Components/support/MediaUploadDrawer";
 import AssetDetails from "../Components/support/AssetDetails";
 import SettingsPanel from "../Components/support/SettingsPanel";
+import { Icon } from "@iconify/react";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const COLORS = {

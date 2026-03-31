@@ -33,12 +33,12 @@ const menuItems = [
   { icon: MdLibraryBooks, label: "Content", path: "/content" },
   { icon: MdEvent, label: "Live & Events", path: "/live-events" },
   { icon: MdLocalOffer, label: "Deals & Partners (PTM)", path: "/deals" },
-  {
-    icon: MdSupervisedUserCircle,
-    label: "Brokers & Referrals",
-    path: "/brokers",
-  },
-  { icon: MdCampaign, label: "Messaging & Community", path: "/messaging" },
+  // {
+  //   icon: MdSupervisedUserCircle,
+  //   label: "Brokers & Referrals",
+  //   path: "/brokers",
+  // },
+  // { icon: MdCampaign, label: "Messaging & Community", path: "/messaging" },
   {
     icon: MdSettings,
     label: "Support / Media / Settings",

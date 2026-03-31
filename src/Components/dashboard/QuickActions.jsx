@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MdAddCircle, MdUploadFile, MdCampaign, MdLocalOffer } from "react-icons/md";
+import { Icon } from "@iconify/react";
 
 const COLORS = {
   card: "#161821",

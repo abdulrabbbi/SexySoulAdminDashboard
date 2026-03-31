@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { MdPalette, MdGroups, MdPayment, MdLink, MdSecurity, MdListAlt, MdSave, MdDownload } from "react-icons/md";
 import { COLORS } from "../../Pages/SupportMediaSettingsPage";
+import { Icon } from "@iconify/react";
 
 const SECTIONS = [
   { key: "brand", label: "Brand Kit", Icon: MdPalette },
