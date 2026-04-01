@@ -116,9 +116,9 @@ const UserDrawer = ({ user, onClose }) => {
           <TabBtn active={tab === "profile"} onClick={() => setTab("profile")}>Profile</TabBtn>
           <TabBtn active={tab === "membership"} onClick={() => setTab("membership")}>Membership</TabBtn>
           <TabBtn active={tab === "invoices"} onClick={() => setTab("invoices")}>Invoices</TabBtn>
-          <TabBtn active={tab === "devices"} onClick={() => setTab("devices")}>Devices</TabBtn>
-          <TabBtn active={tab === "notes"} onClick={() => setTab("notes")}>Notes</TabBtn>
-          <TabBtn active={tab === "audit"} onClick={() => setTab("audit")}>Audit</TabBtn>
+          {/* <TabBtn active={tab === "devices"} onClick={() => setTab("devices")}>Devices</TabBtn> */}
+          {/* <TabBtn active={tab === "notes"} onClick={() => setTab("notes")}>Notes</TabBtn> */}
+          {/* <TabBtn active={tab === "audit"} onClick={() => setTab("audit")}>Audit</TabBtn> */}
         </div>
 
         {/* Body */}
@@ -129,19 +129,19 @@ const UserDrawer = ({ user, onClose }) => {
               <div className="grid grid-cols-2 gap-4">
                 <Field label="User ID">{user.userId}</Field>
                 <Field label="Role">{user.role}</Field>
-                <Field label="Broker ID">{user.brokerId || "-"}</Field>
+                {/* <Field label="Broker ID">{user.brokerId || "-"}</Field> */}
                 <Field label="Joined">{user.joinedAt}</Field>
                 <Field label="Last Active">{user.lastActive}</Field>
               </div>
 
               <div className="flex items-center gap-3">
-                <button
+                {/* <button
                   className="px-3 py-2 rounded-lg text-sm font-medium inline-flex items-center gap-2"
                   style={{ backgroundColor: "#12131A", border: `1px solid ${COLORS.ring}`, color: COLORS.text }}
                   onClick={() => alert("Edit profile (placeholder)")}
                 >
                   <FiEdit2 /> Edit Profile
-                </button>
+                </button> */}
                 <button
                   className="px-3 py-2 rounded-lg text-sm font-medium inline-flex items-center gap-2"
                   style={{

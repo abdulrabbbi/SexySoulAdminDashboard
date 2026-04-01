@@ -14,7 +14,7 @@ const COLORS = {
 };
 
 /* ---- mock data ---- */
-const notifications = [
+const Notifications = [
   { id: 1, title: "Payment Received", desc: "Payment made by a user" },
   { id: 2, title: "Payment Received", desc: "Payment made by a user" },
   { id: 3, title: "Payment Received", desc: "Payment made by a user" },
@@ -65,7 +65,9 @@ const RightSidebar = ({ isOpen, setIsOpen }) => {
       )}
 
       {/* panel */}
-      <aside
+
+
+      {/* <aside
         className={`fixed lg:static inset-y-0 right-0 w-72 sm:w-80 z-[1001]
         transform transition-transform duration-200 ease-in-out
         ${isOpen ? "translate-x-0" : "translate-x-full"} lg:translate-x-0`}
@@ -82,16 +84,16 @@ const RightSidebar = ({ isOpen, setIsOpen }) => {
           style={{ color: COLORS.text2, backgroundColor: "transparent" }}
         >
           <IoClose size={20} />
-        </button>
+        </button> */}
 
-        <div className="h-full overflow-y-auto p-4 space-y-6">
+        {/* <div className="h-full overflow-y-auto p-4 space-y-6"> */}
           {/* Notifications */}
-          <section>
+          {/* <section>
             <h3 className="text-[15px] font-semibold" style={{ color: COLORS.text }}>
               Notifications
             </h3>
             <div className="mt-3 space-y-3">
-              {notifications.map((n) => (
+              {Notifications.map((n) => (
                 <div
                   key={n.id}
                   className="flex gap-3 rounded-xl p-2"
@@ -118,10 +120,10 @@ const RightSidebar = ({ isOpen, setIsOpen }) => {
               ))}
             </div>
             <div className="mt-4" style={{ height: 1, backgroundColor: COLORS.card }} />
-          </section>
+          </section> */}
 
           {/* Messages */}
-          <section>
+          {/* <section>
             <div className="flex items-center justify-between">
               <h3 className="text-[15px] font-semibold" style={{ color: COLORS.text }}>
                 Messages
@@ -191,10 +193,10 @@ const RightSidebar = ({ isOpen, setIsOpen }) => {
             </div>
 
             <div className="mt-4" style={{ height: 1, backgroundColor: COLORS.card }} />
-          </section>
+          </section> */}
 
           {/* Contacts */}
-          <section>
+          {/* <section>
             <div className="flex items-center justify-between">
               <h3 className="text-[15px] font-semibold" style={{ color: COLORS.text }}>
                 Contacts
@@ -209,9 +211,9 @@ const RightSidebar = ({ isOpen, setIsOpen }) => {
               >
                 Show All
               </button>
-            </div>
+            </div> */}
 
-            <div className="mt-3 space-y-3">
+            {/* <div className="mt-3 space-y-3">
               {contacts.map((c) => (
                 <div
                   key={c.id}
@@ -230,8 +232,11 @@ const RightSidebar = ({ isOpen, setIsOpen }) => {
               ))}
             </div>
           </section>
-        </div>
-      </aside>
+        </div> */}
+      {/* </aside> */}
+
+    
+      
     </>
   );
 };

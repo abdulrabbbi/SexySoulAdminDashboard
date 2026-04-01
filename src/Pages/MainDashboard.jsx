@@ -182,7 +182,7 @@ const DashboardContent = () => {
       </div>
 
       {/* System health */}
-      <SystemHealth health={health} />
+      {/* <SystemHealth health={health} /> */}
     </div>
   );
 };

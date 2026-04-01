@@ -75,7 +75,7 @@ const Header = ({ onMenuClick, onNotificationClick }) => {
 
         {/* Search + actions */}
         <div className="hidden md:flex items-center gap-3">
-          <div className="relative">
+          {/* <div className="relative">
             <MdSearch
               size={16}
               className="absolute left-3 top-1/2 -translate-y-1/2"
@@ -97,25 +97,25 @@ const Header = ({ onMenuClick, onNotificationClick }) => {
             >
               ⌘K
             </kbd>
-          </div>
+          </div> */}
 
-          <button
+          {/* <button
             className="p-2 rounded-lg transition"
             onClick={onNotificationClick}
             aria-label="Notifications"
             style={{ color: COLORS.text, backgroundColor: "transparent" }}
           >
             <div className="relative">
-              <MdNotificationsNone size={18} />
+              <MdNotificationsNone size={18} /> */}
               {/* dot */}
-              <span
+              {/* <span
                 className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full"
                 style={{
                   background: `linear-gradient(90deg, ${COLORS.gold}, ${COLORS.purple})`,
                 }}
               />
             </div>
-          </button>
+          </button> */}
 
           <button
             type="button"

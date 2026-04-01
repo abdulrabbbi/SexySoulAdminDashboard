@@ -122,7 +122,7 @@ const exportCSV = (rows) => {
   URL.revokeObjectURL(url);
 };
 
-const UsersTable = ({ data = [], onOpenUser }) => {
+const UsersTable = ({ data = [], onOpenUser, onCreateUser }) => {
   const [search, setSearch] = useState("");
   const [checked, setChecked] = useState(() => new Set());
   const [segment, setSegment] = useState("All"); // All, Free, Paid, VIP, Trial, Cancelled
@@ -265,7 +265,7 @@ const UsersTable = ({ data = [], onOpenUser }) => {
           <button
             className="h-9 px-3 rounded-lg text-sm font-medium inline-flex items-center gap-2"
             style={{ backgroundColor: "#12131A", color: COLORS.text, border: `1px solid ${COLORS.ring}` }}
-            onClick={() => alert("Create user (placeholder)")}
+            onClick={() => onCreateUser?.()}
             title="Add User"
           >
             <FiPlus /> Add
@@ -388,7 +388,7 @@ const UsersTable = ({ data = [], onOpenUser }) => {
                       >
                         View
                       </button>
-                      <button
+                      {/* <button
                         className="px-2 py-1 rounded-md text-xs font-semibold inline-flex items-center gap-1"
                         style={{
                           background: `linear-gradient(90deg, ${COLORS.gold}, ${COLORS.purple})`,
@@ -397,7 +397,7 @@ const UsersTable = ({ data = [], onOpenUser }) => {
                         onClick={() => alert(`Impersonating ${row.name} (placeholder)`)}
                       >
                         <FiUserCheck /> Impersonate
-                      </button>
+                      </button> */}
                     </div>
                   </td>
                 </tr>

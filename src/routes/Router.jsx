@@ -2,7 +2,8 @@ import React, { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/SiteLayout";
 import AuthLayout from "../layouts/AuthLayout";
-
+import ProtectedRoute from "./ProtectedRoute";
+import PublicRoute from "./PublicRoute";
 const DashboardContent = lazy(() => import("../Pages/MainDashboard"));
 const UsersPage = lazy(() => import("../Pages/UsersPage"));
 const ContentPage = lazy(() => import("../Pages/ContentPage"));
@@ -20,24 +21,36 @@ function LazyPage({ children }) {
 
 const Router = createBrowserRouter([
   {
-    path: "/",
-    element: <DashboardLayout />,
+    element: <ProtectedRoute />,
     children: [
-      { index: true, element: <LazyPage><DashboardContent /></LazyPage> },
-      { path: "users-memberships", element: <LazyPage><UsersPage /></LazyPage> },
-      { path: "content", element: <LazyPage><ContentPage /></LazyPage> },
-      { path: "live-events", element: <LazyPage><LiveEventsPage /></LazyPage> },
-      { path: "/live-studio", element: <LazyPage><LiveStudio /></LazyPage> },
-      { path: "deals", element: <LazyPage><DealsPartnersPage /></LazyPage> },
-      { path: "brokers", element: <LazyPage><BrokersReferralsPage /></LazyPage> },
-      { path: "messaging", element: <LazyPage><MessagingCommunityPage /></LazyPage> },
-      { path: "support-settings", element: <LazyPage><SupportMediaSettingsPage /></LazyPage> },
+      {
+        path: "/",
+        element: <DashboardLayout />,
+        children: [
+          { index: true, element: <LazyPage><DashboardContent /></LazyPage> },
+          { path: "users-memberships", element: <LazyPage><UsersPage /></LazyPage> },
+          { path: "content", element: <LazyPage><ContentPage /></LazyPage> },
+          { path: "live-events", element: <LazyPage><LiveEventsPage /></LazyPage> },
+          { path: "live-studio", element: <LazyPage><LiveStudio /></LazyPage> },
+          { path: "deals", element: <LazyPage><DealsPartnersPage /></LazyPage> },
+          { path: "brokers", element: <LazyPage><BrokersReferralsPage /></LazyPage> },
+          { path: "messaging", element: <LazyPage><MessagingCommunityPage /></LazyPage> },
+          { path: "support-settings", element: <LazyPage><SupportMediaSettingsPage /></LazyPage> },
+        ],
+      },
     ],
   },
   {
-    path: "/auth",
-    element: <AuthLayout />,
-    children: [{ path: "login", element: <LazyPage><LoginPage /></LazyPage> }],
+    element: <PublicRoute />,
+    children: [
+      {
+        path: "/auth",
+        element: <AuthLayout />,
+        children: [
+          { path: "login", element: <LazyPage><LoginPage /></LazyPage> },
+        ],
+      },
+    ],
   },
 ]);
 

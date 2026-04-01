@@ -23,9 +23,9 @@ const fieldsDefault = {
   id: "",
   title: "",
   category: "Real Estate",
-  type: "video", // video/article/audio/download
-  status: "Draft", // Draft/Scheduled/Published
-  tier: ["Free"], // multi
+  type: "video",
+  status: "Draft",
+  tier: ["Free"],
   duration: 0,
   createdAt: new Date().toISOString().slice(0, 10),
   scheduledAt: "",
@@ -36,8 +36,10 @@ const fieldsDefault = {
   listens: 0,
   cover: "",
   mediaUrl: "",
+  thumbnailFile: null,
+  videoFile: null,
   seo: { slug: "", metaTitle: "", metaDescription: "" },
-  body: "", // for article
+  body: "",
 };
 
 const TogglePill = ({ active, label, onClick }) => (
@@ -94,12 +96,21 @@ const ContentDrawer = ({ open, initial, collections = [], onClose, onSave }) => 
   };
 
   const onSubmit = (publish) => {
-    const rec = { ...record };
-    rec.status = publish ? (rec.scheduledAt ? "Scheduled" : "Published") : rec.status || "Draft";
-    // basic slug fallback
-    rec.seo.slug ||= rec.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-    onSave?.(rec);
-  };
+  const rec = { ...record };
+
+  rec.status = publish
+    ? rec.scheduledAt
+      ? "Scheduled"
+      : "Published"
+    : rec.status || "Draft";
+
+  rec.slug =
+    rec.slug ||
+    rec?.seo?.slug ||
+    rec.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
+  onSave?.(rec);
+};
 
   if (!open || !mounted) return null;
 
@@ -344,7 +355,7 @@ const ContentDrawer = ({ open, initial, collections = [], onClose, onSave }) => 
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <div className="flex items-center gap-2 mb-2 text-xs" style={{ color: COLORS.text2 }}>
                 <MdCategory /> SEO
               </div>
@@ -370,7 +381,7 @@ const ContentDrawer = ({ open, initial, collections = [], onClose, onSave }) => 
                 style={{ backgroundColor: "#12131A", color: COLORS.text, border: `1px solid ${COLORS.ring}` }}
                 placeholder="Meta Description"
               />
-            </div>
+            </div> */}
           </div>
 
           {/* Actions */}

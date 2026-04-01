@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import  useAdminLogin from "../../Components/auth/login";
+
 import {
   MdMail,
   MdLock,
@@ -22,12 +24,12 @@ const COLORS = {
 
 const LoginPage = () => {
   const navigate = useNavigate();
+   const { loginAdmin, loading, error } = useAdminLogin();
 
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [showPwd, setShowPwd] = useState(false);
   const [remember, setRemember] = useState(true);
-  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({ email: "", pwd: "" });
 
   const validate = () => {
@@ -42,19 +44,23 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
-    setLoading(true);
 
-    // Simulate login
-    setTimeout(() => {
-      const token = "demo-token-" + Date.now();
+    try {
+      const user = await loginAdmin({
+        email: email.trim(),
+        password: pwd,
+      });
+
       if (remember) {
-        localStorage.setItem("auth_token", token);
+        localStorage.setItem("remember_admin_email", email.trim());
       } else {
-        sessionStorage.setItem("auth_token", token);
+        localStorage.removeItem("remember_admin_email");
       }
-      setLoading(false);
-      navigate("/", { replace: true });
-    }, 700);
+
+      navigate("/", { replace: true, state: { user } });
+    } catch (err) {
+      console.error("Login failed:", err.message);
+    }
   };
 
   const socialComingSoon = (name) => {
